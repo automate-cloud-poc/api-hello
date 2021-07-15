@@ -23,7 +23,7 @@ env:
   GKE_CLUSTER: cluster-1    # TODO: update to cluster name
   GKE_ZONE: us-central1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
-  IMAGE: static-site
+  IMAGE: api-hello
 
 jobs:
   setup-build-publish-deploy:
@@ -67,11 +67,12 @@ jobs:
       run: |-
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
-    # Set up kustomize
-    - name: Set up Kustomize
+    # Set up helm
+    - name: Set up Helm
       run: |-
-        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-        chmod u+x ./kustomize
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
 
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
