@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/multi-region-prj/hello
+  repository: gcr.io/multi-region-master/api-hello
   pullPolicy: IfNotPresent
   tag: latest
 
