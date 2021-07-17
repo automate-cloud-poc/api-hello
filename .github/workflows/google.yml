@@ -13,14 +13,20 @@
 name: Build and Deploy to GKE
 
 on:
-  release:
-    types: [created]
-  push:
-    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      cluster:
+        description: 'Current cluster to deploy'
+        required: true
+        default: 'my-gke-cluster'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+  GKE_CLUSTER: ${{ env.cluster }}
   GKE_ZONE: us-central1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   IMAGE: api-hello
