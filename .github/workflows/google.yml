@@ -21,8 +21,8 @@ on:
         default: 'my-gke-cluster'
 
 env:
-  PROJECT_ID: ${{ github.event.inputs.cluster }}
-  GKE_CLUSTER: ${{ env.cluster }}
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GKE_CLUSTER: ${{ github.event.inputs.cluster }}
   GKE_ZONE: us-central1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   IMAGE: api-hello
