@@ -19,13 +19,9 @@ on:
         description: 'Current cluster to deploy'
         required: true
         default: 'my-gke-cluster'
-      home:
-        description: 'location'
-        required: false
-        default: 'The Octoverse'
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  PROJECT_ID: ${{ github.event.inputs.cluster }}
   GKE_CLUSTER: ${{ env.cluster }}
   GKE_ZONE: us-central1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
