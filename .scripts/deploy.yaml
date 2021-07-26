@@ -15,7 +15,7 @@ service:
 
 gateway:
   services:
-    - name: "hello"
+  - name: "hello"
     routes:
       - name: "hello route"
         path: "/v1/sayHello"
