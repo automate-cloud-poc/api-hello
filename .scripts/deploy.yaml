@@ -13,4 +13,10 @@ deploy:
 service:
   port: 1323
 
-virtualService:
+gateway:
+  services:
+    - name: "hello"
+    routes:
+      - name: "hello route"
+        path: "/v1/sayHello"
+        skipAuth: false
