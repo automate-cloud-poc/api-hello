@@ -14,9 +14,7 @@ service:
   port: 1323
 
 gateway:
-  services:
+  routes:
   - name: "hello"
-    routes:
-      - name: "hello route"
-        path: "/v1/sayHello"
-        skipAuth: false
+    path: "/hello/v1/sayHello"
+    skipAuth: false
