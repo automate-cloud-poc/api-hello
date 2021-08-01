@@ -14,8 +14,6 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: ${{ github.event.inputs.cluster }}
-  GKE_ZONE: us-central1-a   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   IMAGE_TAG: ${{ github.event.inputs.tag }}
   IMAGE: api-hello
   REGISTRY: gcr.io

@@ -11,10 +11,12 @@ deploy:
     tag: latest
 
 service:
-  port: 1323
+  port: 8080
 
 gateway:
   routes:
   - name: "hello"
     path: "/hello/v1/sayHello"
-    skipAuth: false
+  - name: "hello with auth"
+    path: "/hello/v1/sayHello/toMe"
+    auth: "authV1"
