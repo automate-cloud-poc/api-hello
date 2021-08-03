@@ -2,12 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-name: api-hello
+name: hello-world
 
 deploy:
   replicaCount: 1
   image:
-    repository: gcr.io/multi-region-master/api-hello
+    repository: gcr.io/multi-region-master/hello-world
     tag: latest
 
 service:
@@ -15,8 +15,6 @@ service:
 
 gateway:
   routes:
-  - name: "hello"
-    path: "/hello/v1/sayHello"
-  - name: "hello with auth"
-    path: "/hello/v1/sayHello/toMe"
+  - path: "/hello/v1/sayHello"
+  - path: "/hello/v1/sayHello/toMe"
     auth: "authV1"
