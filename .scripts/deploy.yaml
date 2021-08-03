@@ -17,4 +17,4 @@ gateway:
   routes:
   - path: "/hello/v1/sayHello"
   - path: "/hello/v1/sayHello/toMe"
-    auth: "authV1"
+    auth: "authv1"
